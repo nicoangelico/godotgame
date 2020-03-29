@@ -18,9 +18,6 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="ShootTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="BulletSpawn" type="Sprite" parent="."]
 position = Vector2( 48, 0 )
 rotation = 1.5708
@@ -30,6 +27,6 @@ texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="PathTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
-[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
 [connection signal="timeout" from="PathTimer" to="." method="_on_PathTimer_timeout"]

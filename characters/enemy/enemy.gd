@@ -4,16 +4,18 @@ onready var nav_2d : Navigation2D = get_node("/root/Main/Navigation2D")
 onready var player = get_node("/root/Main/Player")
 var path : = PoolVector2Array()
 
-func _on_ShootTimer_timeout() -> void:
-	#self._shoot()
-	pass
+func _ready() -> void:
+	speed = 150
 
 #Procesa 1 vez por frame
 func _physics_process(delta):
-#	var dir = (player.global_position - self.global_position).normalized()
-#	move_and_collide(dir * speed * delta)
-	var move_distance = speed * delta
-	move_along_path(move_distance)
+	if position.distance_to(player.position) < 200:
+		speed = 200
+		var dir = (player.global_position - self.global_position).normalized()
+		move_and_collide(dir * speed * delta)
+	else:	
+		var move_distance = speed * delta
+		move_along_path(move_distance)
 
 #Una vez por segundo recalculo el camino hacia el player
 func _on_PathTimer_timeout():
