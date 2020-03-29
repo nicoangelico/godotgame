@@ -1,2 +1,4 @@
 # nicoangelico-gmail.com
-godot project
+godot project the magic
+ the magic
+
